@@ -37,8 +37,8 @@ function App() {
 	const visibleExpense = selectedCategory ? filterExpense(expenses) : expenses;
 
 	return (
-		<div>
-			<div className="mb-3 text-center">
+		<div className='container'>
+			<div className="mb-5 text-center">
 				<h3>Expense Calculator 💶</h3>
 			</div>
 			<div className="mb-5">

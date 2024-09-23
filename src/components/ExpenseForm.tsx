@@ -79,7 +79,7 @@ function AddExpenseForm({ onSubmit }: Props) {
 			</div>
 
 			<button disabled={!isValid} type="submit" className="btn btn-primary">
-				Submit
+				+ Add expense
 			</button>
 		</form>
 	);

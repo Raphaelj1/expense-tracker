@@ -2,7 +2,6 @@ import { useState } from 'react';
 import AddExpenseForm from './components/ExpenseForm';
 import ExpenseList from './components/ExpenseList';
 import ExpenseFilter from './components/ExpenseFilter';
-import expensesJson from '../src/expenses.json';
 
 interface Expense {
 	id: number;
@@ -13,7 +12,7 @@ interface Expense {
 
 function App() {
 	const [selectedCategory, setSelectedCategory] = useState('');
-	const [expenses, setExpenses] = useState([]);
+	const [expenses, setExpenses] = useState<Expense[]>([]);
 
 	// filter expense
 	const filterExpense = (expenses: Expense[]) => {
@@ -22,8 +21,9 @@ function App() {
 		);
 	};
 
-	const addExpense = (expense) => {
-		setExpenses([...expenses, { ...expense, id: expenses.length + 1 }]);
+	const addExpense = (expense: Omit<Expense, 'id'>) => {
+		const newExpense = { ...expense, id: expenses.length + 1 };
+		setExpenses([...expenses, newExpense])
 	};
 
 	const deleteExpense = (id: number) => {
